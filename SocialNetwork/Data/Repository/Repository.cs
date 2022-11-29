@@ -1,24 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace SocialNetwork.Data.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected DbContext _db;
-
-        public DbSet<T> Set
-        {
-            get;
-            private set;
-        }
+        private DbContext _db;
+        public DbSet<T> Set { get; private set; }
 
         public Repository(ApplicationDbContext db)
         {
             _db = db;
             var set = _db.Set<T>();
             set.Load();
-
             Set = set;
         }
 

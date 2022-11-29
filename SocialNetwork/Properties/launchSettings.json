@@ -8,18 +8,18 @@
     }
   },
   "profiles": {
-    "SocialNetwork": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
+    "IIS Express": {
+      "commandName": "IISExpress",
       "launchBrowser": false,
-      "applicationUrl": "https://localhost:7241;http://localhost:5170",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "IIS Express": {
-      "commandName": "IISExpress",
+    "SocialNetwork": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
       "launchBrowser": false,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

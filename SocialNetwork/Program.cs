@@ -2,10 +2,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork;
-using SocialNetwork.Data;
 using SocialNetwork.Data.Repository;
-using SocialNetwork.Extensions;
 using SocialNetwork.Models.Users;
+using SocialNetwork.Extensions;
+using SocialNetwork.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,7 +59,6 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

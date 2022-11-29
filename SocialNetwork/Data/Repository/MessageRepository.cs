@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Data;
 using SocialNetwork.Models.Users;
 
 namespace SocialNetwork.Data.Repository
@@ -8,7 +7,6 @@ namespace SocialNetwork.Data.Repository
     {
         public MessageRepository(ApplicationDbContext db) : base(db)
         {
-
         }
 
         public List<Message> GetMessages(User sender, User recipient)
@@ -20,11 +18,12 @@ namespace SocialNetwork.Data.Repository
             var to = Set.AsEnumerable().Where(x => x.SenderId == recipient.Id && x.RecipientId == sender.Id).ToList();
 
             var itog = new List<Message>();
+
             itog.AddRange(from);
             itog.AddRange(to);
             itog.OrderBy(x => x.Id);
+
             return itog;
         }
     }
-
 }

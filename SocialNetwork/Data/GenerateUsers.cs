@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using SocialNetwork.Models.Users;
+﻿using SocialNetwork.Models.Users;
 
 namespace SocialNetwork.Data
 {

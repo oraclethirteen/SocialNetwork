@@ -8,8 +8,7 @@ namespace SocialNetwork.Controllers.Account
 {
     public class RegisterController : Controller
     {
-        private IMapper _mapper;
-
+        private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
@@ -24,7 +23,7 @@ namespace SocialNetwork.Controllers.Account
         [HttpGet]
         public IActionResult Register()
         {
-            return View("Home/Register");
+            return View("Register");
         }
 
         [Route("RegisterPart2")]
@@ -41,12 +40,12 @@ namespace SocialNetwork.Controllers.Account
             if (ModelState.IsValid)
             {
                 var user = _mapper.Map<User>(model);
-
                 var result = await _userManager.CreateAsync(user, model.PasswordReg);
+
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("MyPage", "AccountManager");
                 }
                 else
                 {
@@ -56,6 +55,7 @@ namespace SocialNetwork.Controllers.Account
                     }
                 }
             }
+
             return View("RegisterPart2", model);
         }
     }

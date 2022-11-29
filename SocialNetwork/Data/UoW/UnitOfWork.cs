@@ -29,6 +29,7 @@ namespace SocialNetwork.Data.UoW
             if (hasCustomRepository)
             {
                 var customRepo = _appContext.GetService<IRepository<TEntity>>();
+
                 if (customRepo != null)
                 {
                     return customRepo;
@@ -36,14 +37,15 @@ namespace SocialNetwork.Data.UoW
             }
 
             var type = typeof(TEntity);
+
             if (!_repositories.ContainsKey(type))
             {
                 _repositories[type] = new Repository<TEntity>(_appContext);
             }
 
             return (IRepository<TEntity>)_repositories[type];
-
         }
+
         public int SaveChanges(bool ensureAutoHistory = false)
         {
             throw new NotImplementedException();

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Models;
+using SocialNetwork.ViewModels.Account;
 using System.Diagnostics;
 
 namespace SocialNetwork.Controllers
@@ -17,7 +18,7 @@ namespace SocialNetwork.Controllers
         [Route("[controller]/[action]")]
         public IActionResult Index()
         {
-            return View();
+            return View(new MainViewModel());
         }
 
         [Route("[action]")]

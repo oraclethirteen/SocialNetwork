@@ -13,8 +13,8 @@ namespace SocialNetwork.Extensions
         }
 
         public static IServiceCollection AddCustomRepository<TEntity, IRepository>(this IServiceCollection services)
-                 where TEntity : class
-                 where IRepository : class, IRepository<TEntity>
+            where TEntity : class
+            where IRepository : class, IRepository<TEntity>
         {
             services.AddScoped<IRepository<TEntity>, IRepository>();
 
