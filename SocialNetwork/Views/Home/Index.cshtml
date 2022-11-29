@@ -1,9 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity;
-@using AwesomeNetwork.Models.Users;
+@using SocialNetwork.Models.Users;
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager;
 
-@model AwesomeNetwork.ViewModels.Account.MainViewModel;
+@model SocialNetwork.ViewModels.Account.MainViewModel;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -12,12 +12,9 @@
 @if (SignInManager.IsSignedIn(User))
 {
     //редирект
-
 }
 else
 {
-
-
     <div class="row">
         <div class="side">
             <div class="center">

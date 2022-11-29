@@ -1,4 +1,6 @@
-﻿namespace SocialNetwork.ViewModels.Account
+﻿using SocialNetwork.Models.Users;
+
+namespace SocialNetwork.ViewModels.Account
 {
     public class ChatViewModel
     {

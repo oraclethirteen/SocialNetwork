@@ -1,16 +1,23 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SocialNetwork;
 using SocialNetwork.Data;
 using SocialNetwork.Data.Repository;
+using SocialNetwork.Extensions;
 using SocialNetwork.Models.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var mapperConfig = new MapperConfiguration((expression) => expression.AddProfile(new MappingProfile()));
+var mapper = mapperConfig.CreateMapper();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+builder.Services.AddSingleton(mapper);
 builder.Services.AddUnitOfWork();
+builder.Services.AddCustomRepository<Message, MessageRepository>();
 builder.Services.AddCustomRepository<Friend, FriendsRepository>();
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
@@ -24,27 +31,41 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
+var cachePeriod = "0";
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = context =>
+        context.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}")
+});
 
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
 
-app.Run();
+    app.Run();
+});

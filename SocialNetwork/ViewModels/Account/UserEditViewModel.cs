@@ -1,4 +1,6 @@
-﻿namespace SocialNetwork.ViewModels.Account
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SocialNetwork.ViewModels.Account
 {
     public class UserEditViewModel
     {

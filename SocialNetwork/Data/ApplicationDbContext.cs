@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Configs;
 using SocialNetwork.Models.Users;
 
 namespace SocialNetwork.Data
@@ -16,7 +17,7 @@ namespace SocialNetwork.Data
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new FriendConfiguration());
-            builder.ApplyConfiguration(new MessageConfuiguration());
+            builder.ApplyConfiguration(new MessageConfiguration());
         }
     }
 }

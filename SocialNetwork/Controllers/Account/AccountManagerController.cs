@@ -2,11 +2,15 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SocialNetwork;
+using SocialNetwork.Data;
 using SocialNetwork.Data.Repository;
 using SocialNetwork.Data.UoW;
+using SocialNetwork.Extensions;
 using SocialNetwork.Models.Users;
 using SocialNetwork.ViewModels.Account;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SocialNetwork.Controllers.Account
 {
@@ -32,8 +36,7 @@ namespace SocialNetwork.Controllers.Account
         [HttpGet]
         public async Task<IActionResult> Generate()
         {
-
-            var usergen = new GenetateUsers();
+            var usergen = new GenerateUsers();
             var userlist = usergen.Populate(35);
 
             foreach (var user in userlist)
