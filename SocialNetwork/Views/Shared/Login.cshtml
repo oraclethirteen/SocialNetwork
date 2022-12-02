@@ -5,23 +5,21 @@
 }
 
 <div class="block-reg background-white">
-    <h4 class="center">Добро пожаловать!</h4>
-    <form class="frm" method="post" asp-controller="AccountManager" asp-action="Login">
-        <div asp-validation-summary="ModelOnly"></div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+    <div class="text-center mb-3">
+        <h2>Добро пожаловать!</h2>
+    </div>
+    <form method="post" asp-controller="AccountManager" asp-action="Login">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3">
+            <input class="form-control" asp-for="Email"/>
+            <span class="text-danger" asp-validation-for="Email"></span>
         </div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+        <div class="mb-3">
+            <input class="form-control" asp-for="Password"/>
+            <span class="text-danger" asp-validation-for="Password"></span>
         </div>
-        <div>
-            <input class="enter_submit" type="submit" value="Войти" />
+        <div class="mb-3">
+            <input class="btn btn-primary btn-lg w-100" type="submit" value="Войти"/>
         </div>
     </form>
 </div>

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 using SocialNetwork.Data.Repository;
+using System;
+using System.Collections.Generic;
 
 namespace SocialNetwork.Data.UoW
 {

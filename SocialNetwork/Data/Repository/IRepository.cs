@@ -1,4 +1,6 @@
-﻿namespace SocialNetwork.Data.Repository
+﻿using System.Collections.Generic;
+
+namespace SocialNetwork.Data.Repository
 {
     public interface IRepository<T> where T : class
     {

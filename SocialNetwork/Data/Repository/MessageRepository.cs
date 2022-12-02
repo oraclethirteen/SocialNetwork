@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Models.Users;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SocialNetwork.Data.Repository
 {

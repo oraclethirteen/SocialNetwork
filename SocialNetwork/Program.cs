@@ -6,6 +6,12 @@ using SocialNetwork.Data.Repository;
 using SocialNetwork.Models.Users;
 using SocialNetwork.Extensions;
 using SocialNetwork.Data;
+using Microsoft.AspNetCore.Builder;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 

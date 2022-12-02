@@ -1,4 +1,5 @@
-﻿using SocialNetwork.Data.Repository;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SocialNetwork.Data.Repository;
 using SocialNetwork.Data.UoW;
 
 namespace SocialNetwork.Extensions

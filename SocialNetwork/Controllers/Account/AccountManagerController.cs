@@ -8,6 +8,9 @@ using SocialNetwork.Data.UoW;
 using SocialNetwork.Extensions;
 using SocialNetwork.Models.Users;
 using SocialNetwork.ViewModels.Account;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SocialNetwork.Controllers.Account
 {

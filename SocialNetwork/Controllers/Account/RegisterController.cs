@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Models.Users;
 using SocialNetwork.ViewModels.Account;
+using System.Threading.Tasks;
 
 namespace SocialNetwork.Controllers.Account
 {

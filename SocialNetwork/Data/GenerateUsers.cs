@@ -1,4 +1,6 @@
 ﻿using SocialNetwork.Models.Users;
+using System;
+using System.Collections.Generic;
 
 namespace SocialNetwork.Data
 {

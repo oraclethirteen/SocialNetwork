@@ -4,56 +4,68 @@
     ViewData["Title"] = "Register";
 }
 
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
-
 <div class="block-reg background-white">
-    <h3 class="center">Продолжение регистрации</h3>
-    <form class="frm" method="post" asp-controller="Register" asp-action="Register">
-        <div asp-validation-summary="ModelOnly"></div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+    <h3 class="center">Регистрация нового пользователя</h3>
+    <form method="post" asp-controller="Register" asp-action="Register">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="text-muted mb-1">
+            ФИО
+        </div>
+        <div class="row mb-2">
+            <div class="col-auto">
+                <input class="form-control" asp-for="LastName"/>
+                <span class="text-danger" asp-validation-for="LastName"></span>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" asp-for="FirstName"/>
+                <span class="text-danger" asp-validation-for="FirstName"></span>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" asp-for="MiddleName"/>
+                <span class="text-danger" asp-validation-for="MiddleName"></span>
             </div>
         </div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+        <div class="text-muted mb-1">
+            Электронная почта
+        </div>
+        <div class="row mb-2">
+            <div class="col-auto">
+                <input class="form-control" asp-for="EmailReg"/>
+                <span class="text-danger" asp-validation-for="EmailReg"></span>
             </div>
         </div>
-
-        <div class="mrgn center">
-            <input asp-for="Date" class="form-control date_control" />
-            <span asp-validation-for="Date" class="text-danger"></span>
-
-            <input asp-for="Month" class="form-control date_control" />
-            <span asp-validation-for="Month" class="text-danger"></span>
-
-            <input asp-for="Year" class="form-control date_control" />
-            <span asp-validation-for="Year" class="text-danger"></span>
+        <div class="text-muted mb-1">
+            Дата рождения
         </div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="EmailReg" class="form-control" />
-                <span asp-validation-for="EmailReg" class="text-danger"></span>
+        <div class="row mb-2">
+            <div class="col-auto">
+                <input class="form-control" asp-for="Date" min="1" max="31">
+                <span class="text-danger" asp-validation-for="Date"></span>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" asp-for="Month" min="1" max="12">
+                <span class="text-danger" asp-validation-for="Month"></span>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" asp-for="Year" min="@(DateTime.Now.Year - 100)" max="@(DateTime.Now.Year - 15)">
+                <span class="text-danger" asp-validation-for="Year"></span>
             </div>
         </div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="PasswordReg" class="form-control" />
-                <span asp-validation-for="PasswordReg" class="text-danger"></span>
+        <div class="text-muted mb-1">
+            Пароль
+        </div>
+        <div class="row mb-2">
+            <div class="col-auto">
+                <input class="form-control" asp-for="PasswordReg"/>
+                <span class="text-danger" asp-validation-for="PasswordReg"></span>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" asp-for="PasswordConfirm"/>
+                <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
             </div>
         </div>
-        <div>
-            <div class="mrgn">
-                <input asp-for="PasswordConfirm" class="form-control" />
-                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="center">
-            <input class="btn_submit" type="submit" value="Регистрация" />
+        <div class="mb-1">
+            <input class="btn btn-success btn-lg w-100" type="submit" value="Регистрация"/>
         </div>
     </form>
 </div>
